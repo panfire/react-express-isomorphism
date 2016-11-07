@@ -1,0 +1,17 @@
+{
+  "apps": [{
+    "name": "react-express-webpack",
+    "script": "./server/bin/www",
+    "watch": false,
+    "instances": 1,
+    "node_args": "--harmony",
+    "exec_interpreter" : "node",
+    "log_date_format"  : "YYYY-MM-DD HH:mm Z",
+    "merge_logs": false,
+    "env": {
+        "NODE_ENV": "production"
+    },
+    "error_file": "./logs/error/error.log",
+    "out_file": "./logs/out/out.log"
+  }]
+}

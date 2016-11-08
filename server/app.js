@@ -21,7 +21,7 @@ app.set('view engine', 'html')
 app.use(compression({
   level: 3
 }))
-// app.use(favicon(path.join(config.public, 'favicon.ico')))
+app.use(favicon(path.join(config.public, 'favicon.ico')))
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({

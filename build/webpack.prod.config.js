@@ -15,7 +15,7 @@ export default {
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
       'lib': path.resolve(__dirname, '../src/lib'),
-      'pages': path.resolve(__dirname, '../src/pages')
+      'containers': path.resolve(__dirname, '../src/containers')
     },
     root: [
       path.join(__dirname, '../bower_components')

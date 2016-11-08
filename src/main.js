@@ -1,9 +1,8 @@
 import React from 'react'
-import {
-  render
-} from 'react-dom'
+import { render } from 'react-dom'
+import Routes from './routes'
 
 render(
-  <h1> hello world </h1>,
+  <Routes />,
   document.getElementById('app')
 )

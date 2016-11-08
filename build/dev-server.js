@@ -32,8 +32,8 @@ compiler.plugin('done', function(stat) {
   const data = stat.toJson()
   data.assets.forEach(function(file) {
     if (path.extname(file.name) === '.html') {
-      var content = devMiddleware.fileSystem.readFileSync(path.join(serverConfig.front, file.name))
-      fsp.outputFileSync(path.join(serverConfig.front, file.name), content.toString('utf8'), 'utf8')
+      // var content = devMiddleware.fileSystem.readFileSync(path.join(serverConfig.front, file.name))
+      // fsp.outputFileSync(path.join(serverConfig.front, file.name), content.toString('utf8'), 'utf8')
     }
   })
 })
@@ -75,6 +75,6 @@ app.listen(serverConfig.port + 10, function(err) {
   if (err) {
     return console.log(err)
   }
-  console.log('dev server is on %s', serverConfig.port)
-  open('http://localhost:' + serverConfig.port)
+  console.log('dev server is on %s', serverConfig.port + 10)
+  open('http://localhost:' + (serverConfig.port + 10))
 })

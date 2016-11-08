@@ -12,7 +12,7 @@ export default {
       'assets': path.resolve(__dirname, '../src/assets'),
       'components': path.resolve(__dirname, '../src/components'),
       'lib': path.resolve(__dirname, '../src/lib'),
-      'pages': path.resolve(__dirname, '../src/pages')
+      'containers': path.resolve(__dirname, '../src/containers')
     },
     root: [
       path.join(__dirname, '../bower_components')
@@ -85,7 +85,7 @@ export default {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
-      filename: './views/index.html',
+      filename: './index.html',
       template: path.join(__dirname, '../src/index.html'),
       inject: true
     })

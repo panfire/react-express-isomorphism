@@ -7,7 +7,7 @@
     "build": "babel-node ./build/build.js",
     "dev": "babel-node ./build/dev-server.js",
     "server": "babel-node ./server/bin/www",
-    "clean": "rimraf ./front",
+    "prebuild": "rimraf ./front",
     "test": "babel-node ./test/b.js"
   },
   "keywords": [],

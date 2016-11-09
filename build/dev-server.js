@@ -28,16 +28,6 @@ const devMiddleware = webpackDevMiddleware(compiler, {
 })
 const hotMiddleware = webpackHotMiddleware(compiler)
 
-compiler.plugin('done', function(stat) {
-  const data = stat.toJson()
-  data.assets.forEach(function(file) {
-    if (path.extname(file.name) === '.html') {
-      // var content = devMiddleware.fileSystem.readFileSync(path.join(serverConfig.front, file.name))
-      // fsp.outputFileSync(path.join(serverConfig.front, file.name), content.toString('utf8'), 'utf8')
-    }
-  })
-})
-
 nodemon({
   verbose: true,
   script: './server/bin/www',

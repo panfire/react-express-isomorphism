@@ -15,7 +15,7 @@ export default {
   entry: [
     path.resolve(__dirname, './webpack-public-path'),
     'webpack-hot-middleware/client?reload=true',
-    path.resolve(config.src, './front/main.js')
+    path.resolve(config.src, './main.js')
   ],
   target: 'web',
   output: {
@@ -77,7 +77,8 @@ export default {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: './index.html',
-      template: path.join(config.src, './front/index.html'),
+      __DEV__: true,
+      template: path.join(config.src, './index.html'),
       inject: true
     })
   ]

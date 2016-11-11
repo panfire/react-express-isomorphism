@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import app from '../app'
 import http from 'http'
-import config from '../../config'
+import config from '../config'
 import debug from 'debug'
 
 let log = debug('server:bin')

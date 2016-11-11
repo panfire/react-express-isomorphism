@@ -30,7 +30,7 @@ const hotMiddleware = webpackHotMiddleware(compiler)
 
 nodemon({
   verbose: true,
-  script: './src/server/bin/www',
+  script: './src/bin/www',
   ignore: ['node_modules/'],
   watch: ['src/'],
   exec: 'babel-node',

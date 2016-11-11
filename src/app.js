@@ -9,14 +9,17 @@ import session from 'express-session'
 import compression from 'compression'
 import validator from 'express-validator'
 import cons from 'consolidate'
-import config from '../config'
-import appRoutes from './routes'
+import config from './config'
+// routes
+import index from './controller/index'
+import api from './controller/api'
+import reactRender from './controller/reactRender'
 
 const app = express()
 // const RedisStore = connectRedis(session)
 
 app.engine('html', cons.handlebars)
-app.set('views', path.join(config.front, 'views'))
+app.set('views', config.views)
 app.set('view engine', 'html')
 app.use(compression({
   level: 3
@@ -28,8 +31,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 app.use(cookieParser())
-app.use(express.static(config.front))
-
+app.use(express.static(config.static))
 app.use(session({
   // store: new RedisStore(config.redis),
   secret: 'm.tiger8.com',
@@ -43,7 +45,10 @@ app.use(session({
   rolling: true
 }))
 app.use(validator())
-appRoutes(app)
+
+app.use('/api', api)
+app.use('/', reactRender)
+
 
 app.use((req, res, next) => {
   var err = new Error('Not Found')

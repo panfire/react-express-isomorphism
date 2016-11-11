@@ -11,10 +11,10 @@ export default {
     extensions: ['', '.js', '.jsx', '.json'],
     fallback: [path.join(__dirname, '../node_modules')],
   },
-  entry: path.resolve(config.src, './front/main.js'),
+  entry: path.resolve(config.src, './main.js'),
   target: 'web',
   output: {
-    path: path.resolve(config.dist, './front'),
+    path: path.resolve(config.dist, './static'),
     publicPath: '/',
     filename: 'scripts/[name].[chunkhash].js'
   },
@@ -70,8 +70,9 @@ export default {
     new ExtractTextPlugin('styles/[name].[contenthash].css'),
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
-      filename: './views/index.html',
-      template: path.join(config.src, './front/index.html'),
+      __DEV__: false,
+      filename: '../views/index.html',
+      template: path.join(config.src, './index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true

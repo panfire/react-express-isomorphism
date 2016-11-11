@@ -1,6 +1,3 @@
 node_modules/
-front/
-/0.0.1
-/patch
-/bundle
-/.temp
+server/
+.temp/

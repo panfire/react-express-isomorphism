@@ -7,7 +7,8 @@
     "build": "babel-node ./build/build.js",
     "dev": "babel-node ./build/dev-server.js",
     "server": "babel-node ./server/bin/www",
-    "prebuild": "rimraf ./front",
+    "serverBuild": "babel server --out-dir dist -x \"\",\".js\"",
+    "clean": "rimraf ./dist",
     "test": "babel-node ./test/b.js"
   },
   "keywords": [],
@@ -39,7 +40,9 @@
     "file-loader": "^0.9.0",
     "html-webpack-plugin": "^2.24.1",
     "http-proxy-middleware": "^0.17.2",
+    "immutable": "^3.8.1",
     "json-loader": "^0.5.4",
+    "key-mirror": "^1.0.1",
     "node-sass": "^3.11.1",
     "nodemon": "^1.11.0",
     "open": "0.0.5",
@@ -49,17 +52,10 @@
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2",
     "webpack-dev-middleware": "^1.8.4",
+    "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.13.1",
-    "webpack-md5-hash": "0.0.5",
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2",
-    "react-redux": "^4.4.5",
-    "react-router": "^3.0.0",
-    "react-router-redux": "^4.0.7",
-    "redux": "^3.6.0",
-    "redux-thunk": "^2.1.0"
+    "webpack-md5-hash": "0.0.5"
   },
   "dependencies": {
     "body-parser": "^1.15.2",
@@ -73,6 +69,14 @@
     "fs-promise": "^0.5.0",
     "handlebars": "^4.0.5",
     "morgan": "^1.7.0",
-    "serve-favicon": "^2.3.0"
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^3.0.0",
+    "react-router-redux": "^4.0.7",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
+    "serve-favicon": "^2.3.0",
+    "superagent": "^2.3.0"
   }
 }

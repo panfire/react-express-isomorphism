@@ -5,3 +5,4 @@ export default {
   front: path.resolve(__dirname, './front'),
   public: path.resolve(__dirname, './public')
 }
+

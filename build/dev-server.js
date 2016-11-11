@@ -8,7 +8,7 @@ import webpackDevMiddleware from 'webpack-dev-middleware'
 import proxy from 'http-proxy-middleware'
 import open from 'open'
 import webpackDevConfig from './webpack.dev.config'
-import serverConfig from '../config'
+import serverConfig from '../src/config'
 
 const app = express()
 const compiler = webpack(webpackDevConfig)
@@ -30,9 +30,9 @@ const hotMiddleware = webpackHotMiddleware(compiler)
 
 nodemon({
   verbose: true,
-  script: './server/bin/www',
-  ignore: ['src/', 'node_modules/', 'front/'],
-  watch: ['./server/'],
+  script: './src/server/bin/www',
+  ignore: ['node_modules/'],
+  watch: ['src/'],
   exec: 'babel-node',
   env: {
     NODE_ENV: 'development'

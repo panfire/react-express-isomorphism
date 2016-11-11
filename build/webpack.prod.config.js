@@ -4,30 +4,17 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import WebpackMd5Hash from 'webpack-md5-hash'
 import autoprefixer from 'autoprefixer'
 import path from 'path'
-import serverConfig from '../config'
+import config from './config'
 
 export default {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
     fallback: [path.join(__dirname, '../node_modules')],
-    alias: {
-      'src': path.resolve(__dirname, '../src'),
-      'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components'),
-      'lib': path.resolve(__dirname, '../src/lib'),
-      'containers': path.resolve(__dirname, '../src/containers')
-    },
-    root: [
-      path.join(__dirname, '../bower_components')
-    ]
   },
-  debug: true,
-  devtool: 'eval-source-map',
-  noInfo: true,
-  entry: path.resolve(__dirname, '../src/main.js'),
+  entry: path.resolve(config.src, './front/main.js'),
   target: 'web',
   output: {
-    path: serverConfig.front,
+    path: path.resolve(config.dist, './front'),
     publicPath: '/',
     filename: 'scripts/[name].[chunkhash].js'
   },
@@ -84,7 +71,7 @@ export default {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: './views/index.html',
-      template: path.join(__dirname, '../src/index.html'),
+      template: path.join(config.src, './front/index.html'),
       minify: {
         removeComments: true,
         collapseWhitespace: true

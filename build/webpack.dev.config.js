@@ -2,21 +2,12 @@ import webpack from 'webpack'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import autoprefixer from 'autoprefixer'
 import path from 'path'
+import config from './config'
 
 export default {
   resolve: {
     extensions: ['', '.js', '.jsx', '.json'],
-    fallback: [path.join(__dirname, '../node_modules')],
-    alias: {
-      'src': path.resolve(__dirname, '../src'),
-      'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components'),
-      'lib': path.resolve(__dirname, '../src/lib'),
-      'containers': path.resolve(__dirname, '../src/containers')
-    },
-    root: [
-      path.join(__dirname, '../bower_components')
-    ]
+    fallback: [path.join(__dirname, '../node_modules')]
   },
   debug: true,
   devtool: 'eval-source-map',
@@ -24,7 +15,7 @@ export default {
   entry: [
     path.resolve(__dirname, './webpack-public-path'),
     'webpack-hot-middleware/client?reload=true',
-    path.resolve(__dirname, '../src/main.js')
+    path.resolve(config.src, './front/main.js')
   ],
   target: 'web',
   output: {
@@ -86,7 +77,7 @@ export default {
     new webpack.NoErrorsPlugin(),
     new HtmlWebpackPlugin({
       filename: './index.html',
-      template: path.join(__dirname, '../src/index.html'),
+      template: path.join(config.src, './front/index.html'),
       inject: true
     })
   ]
